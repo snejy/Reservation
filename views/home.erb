@@ -1,0 +1,8 @@
+<p class="lead">Welcome to Reservation!</p>
+<body>
+    <% if @users %>
+    <%   @users.each do |user| %>
+    <p><%= user.username%>
+       <% end %>
+    <% end %>
+</body>
