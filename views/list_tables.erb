@@ -1,0 +1,14 @@
+<% if @tables %>
+<ul>
+  <% @tables.each do |table| %>
+    <li> Table number: <%= table.number %> with <%= table.places %> places</li>
+    <% if table.available %>
+      <p> is available.<p>
+    <% else %>
+      <p> is NOT available at the moment.</p>
+    <% end %>
+  <% end %>
+<% else %>
+  <p> There are no tables registered for this place. </p>
+<% end %>
+</ul>

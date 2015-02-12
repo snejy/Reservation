@@ -1,7 +1,5 @@
-require "rubygems"
+require 'rubygems'
 require 'bundler'
-require 'dm-migrations'
-require 'sinatra/base'
 
 module Reservation
   Bundler.require
@@ -9,6 +7,16 @@ module Reservation
   class Base < Sinatra::Base
     set :views, File.expand_path('../views', __FILE__)
     enable :sessions
-
   end
 end
+
+Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
+
+DataMapper.setup(:default, 'sqlite:database/test.db')
+DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
+
+PATHS = {
+    '/place' => Reservation::RestaurantController,
+    '/user' => Reservation::UserController
+}

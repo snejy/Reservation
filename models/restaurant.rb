@@ -5,6 +5,7 @@ module Reservation
     property :id, Serial
 
     property :name, Text,
+      :key => true,
       :required => true,
       :length => 2..100,
       :unique => true,
@@ -13,9 +14,24 @@ module Reservation
         :unique => "A restaurant with this name already exists."
       }
 
-    has n, :products
+    property :password, String, :required => true
 
-    has n, :tables
+    property :address, String, :required => true,
+     :key => true,
+     :length => 10..100,
+     :unique => true,
+     :messages => {
+        :length => "The address of the restaurant is shorter than 10 or longer than 100 characters.",
+        :unique => "A restaurant with this address already exists."
+     }
+
+    has n, :products, 'Product',
+      parent_key: [:id],
+      child_key: [:id_restaurant]
+
+    has n, :tables, 'Table',
+      parent_key: [:id],
+      child_key: [:id_restaurant]
 
   end
 end

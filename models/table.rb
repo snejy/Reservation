@@ -4,6 +4,8 @@ module Reservation
 
     property :id, Serial
 
+    property :id_restaurant, Integer, :key => true
+
     property :number, Integer, :required => true,
       unique: true
 
@@ -11,6 +13,8 @@ module Reservation
 
     property :available, Boolean, :default => true
 
-    belongs_to :restaurant
+    belongs_to :restaurant, 'Restaurant',
+      parent_key: [:id],
+      child_key: [:id_restaurant]
   end
 end

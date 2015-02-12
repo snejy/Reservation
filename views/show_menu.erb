@@ -1,0 +1,11 @@
+<% if @menu %>
+<ul>
+  <% @menu.each do |item| %>
+    <li> Product name: <%= item.name %></li> 
+    <p>  price: <%= item.price %> </p>
+    <p>  for <%= item.weight %> grams </p>
+  <% end %>
+<% else %>
+  <p> There are no products registered for this place. </p>
+<% end %>
+</ul>

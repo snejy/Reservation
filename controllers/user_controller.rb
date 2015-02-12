@@ -2,14 +2,28 @@ module Reservation
   class UserController < Base
 
     get '/register' do
-      erb :register  
+      erb :register_user  
     end
 
     post '/register' do
-      username = params['username']
-      pass1 = params['password1']
-      pass2 = params['password2']
-      erb "username #{username}, password1 #{pass1} password2 #{pass2}"
+      @errors = check_passwords params['password1'], params['password2']
+      erb "#{@errors}" if @errors ||= create_user(params['username'], params['password1'])
     end
+
+    get '/login' do
+      erb :user_login
+    end
+
+    post '/login' do
+      user = find_user params['username'], params['password']
+      if user.size == 1
+        session['username'] = params['username']
+        erb "Hey, #{params['username']}. You logged in successfully."
+      else
+        erb "Invalid username or password."
+      end
+    end
+
+    helpers AuthenticationHelper
   end
 end
