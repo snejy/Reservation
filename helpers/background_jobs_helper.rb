@@ -2,10 +2,10 @@ module Reservation
   module BackgroundJobsHelper
 
     # undo reservation if the user has not ordered in 5 minutes
-    def undo_reservation_after_5_minutes id
+    def undo_reservation_after_5_minutes id, minutes = 300
       task = Thread.new {        
         table = Table.all.last(:id => id.to_i)
-        sleep(300)  
+        sleep(minutes)  
         table.update(:available => true)
        }
     end

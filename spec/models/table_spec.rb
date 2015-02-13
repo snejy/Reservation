@@ -26,7 +26,7 @@ module Reservation
       table = Table.create(:number => 1, :places => 4, :available => false )
       restaurant.tables << table
       restaurant.tables.save
-      expect(Table.count.to_s).to eq("1")
+      expect(Table.count(:number => 1).to_s).to eq("1")
     end
 
     it 'should not create tables with the same number' do
@@ -34,7 +34,7 @@ module Reservation
       table = Table.create(:number => 1, :places => 4, :available => false )
       restaurant.tables << table
       restaurant.tables.save
-      expect(Table.count.to_s).to eq("1")
+      expect(Table.count(:number => 1).to_s).to eq("1")
     end
 
   end

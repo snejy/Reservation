@@ -15,7 +15,7 @@ module Reservation
 
     def reserve_table id
       table = Table.all(:id => id.to_i)
-      if table
+      if table != []
         table.update(:available => false)
       else
         "Such table does not exists."
@@ -41,6 +41,5 @@ module Reservation
       user.orders << order
       user.orders.save
     end
-
   end
 end

@@ -58,6 +58,10 @@ module Reservation
       end
     end
 
+    def logout
+      session['username'] = nil
+    end
+
     def find_place name, password
       Restaurant.all(:name => name, :password => password)
     end

@@ -33,15 +33,8 @@ module Reservation
       place.products
     end
 
-    def accept_order
+    def logout_place
+      session['name'] = nil
     end
-
-    def order product_id, table_id
-        
-    end
-
-    def calculate_check product, portions
-    end
-
   end
 end

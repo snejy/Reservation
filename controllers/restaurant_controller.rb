@@ -26,15 +26,10 @@ module Reservation
       end
     end
 
-    # get '/tables' do
-    #   @tables = list_tables
-    #   erb :list_tables
-    # end
-
-    # get '/menu' do
-    #   @menu = show_menu
-    #   erb :show_menu
-    # end
+    get '/logout' do
+      logout_place
+      redirect :home
+    end
 
     helpers AuthenticationHelper
     helpers RestaurantHelper

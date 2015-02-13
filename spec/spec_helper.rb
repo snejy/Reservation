@@ -9,6 +9,7 @@ RSpec.configure do |config|
   Reservation::Restaurant.auto_migrate!
   Reservation::Table.auto_migrate!
   Reservation::Product.auto_migrate!
+  Reservation::Order.auto_migrate!
 end
 
 def app

@@ -24,6 +24,11 @@ module Reservation
       end
     end
 
+    get '/logout' do
+      logout
+      redirect :home
+    end
+
     helpers AuthenticationHelper
   end
 end
