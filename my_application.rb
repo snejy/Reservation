@@ -15,11 +15,11 @@ Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
 DataMapper.setup(:default, 'sqlite:database/test.db')
 DataMapper.auto_migrate!
 DataMapper.auto_upgrade!
+DataMapper.finalize
 
 PATHS = {
     '/' => Reservation::ReservationController,
     '/place' => Reservation::RestaurantController,
     '/place/add' => Reservation::ManagementController,
     '/user' => Reservation::UserController
-
 }
