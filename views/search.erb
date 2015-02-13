@@ -1,0 +1,15 @@
+<form action='/search' method='post' class="form-vertical">
+
+<input class="span12" type="text" name='place' placeholder="Name of a place:" autofocus>
+
+<input class="btn btn-large btn-info" type='submit' value='Search'>
+
+<% if @places %>
+<ul>
+  <% @places.each do |place| %>
+    <a href="/reserve/<%= place.id %>"><%= place.name %></a> 
+  <% end %>
+<% else %>
+  <p> There are no places at the moment. </p>
+<% end %>
+</ul>

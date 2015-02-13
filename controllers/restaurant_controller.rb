@@ -7,7 +7,7 @@ module Reservation
 
     post '/register' do
       @errors = check_passwords params['password1'], params['password2']
-      erb "#{@errors}" if @errors ||= create_place(params['name'],
+      erb "<p>#{@errors}</p>" if @errors ||= create_place(params['name'],
                                                    params['address'],
                                                    params['password1'])
     end
@@ -20,43 +20,21 @@ module Reservation
       place = find_place(params['name'], params['password'])
       if place.size == 1
         session['name'] = params['name']
-        erb "Hey, #{params['name']}. You logged in successfully as a place."
+        erb "<p>Hey, #{params['name']}. You logged in successfully as a place.</p>"
       else
-        erb "Invalid name or password."
+        erb "<p>Invalid name or password.</p>"
       end
     end
 
-    get '/add/table' do
-      erb :add_table
-    end
+    # get '/tables' do
+    #   @tables = list_tables
+    #   erb :list_tables
+    # end
 
-    post '/add/table' do
-      @errors = add_table params['number'], params['places']
-      redirect '/add/table' unless @errors == true
-      erb "The table was added successfully."
-    end
-
-    get '/list/tables' do
-      @tables = list_tables
-      erb :list_tables
-    end
-
-    get '/add/product' do
-      erb :add_product
-    end
-
-    post '/add/product' do
-      @errors = add_product params['name'], params['price'], params['weight']
-      erb "#{@errors}"
-    end
-
-    get '/show/menu' do
-      @menu = show_menu
-      erb :show_menu
-    end
-
-    get '/find' do
-    end
+    # get '/menu' do
+    #   @menu = show_menu
+    #   erb :show_menu
+    # end
 
     helpers AuthenticationHelper
     helpers RestaurantHelper

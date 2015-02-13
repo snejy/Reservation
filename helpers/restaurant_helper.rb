@@ -36,13 +36,8 @@ module Reservation
     def accept_order
     end
 
-    def list_free_tables
-    end
-
-    def reserve table, places
-    end
-
-    def order product, portions
+    def order product_id, table_id
+        
     end
 
     def calculate_check product, portions

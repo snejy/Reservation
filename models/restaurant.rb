@@ -33,5 +33,9 @@ module Reservation
       parent_key: [:id],
       child_key: [:id_restaurant]
 
+    has n, :orders, 'Order',
+      parent_key: [:id],
+      child_key: [:id_restaurant]
+
   end
 end

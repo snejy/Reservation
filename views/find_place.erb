@@ -1,0 +1,9 @@
+<% if @places %>
+<ul>
+  <% @places.each do |place| %>
+    <a href="/reserve/<%= place.id %>"><%= place.name %></a> 
+  <% end %>
+<% else %>
+  <p> There are no places at the moment. </p>
+<% end %>
+</ul>

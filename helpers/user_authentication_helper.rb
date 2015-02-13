@@ -33,8 +33,16 @@ module Reservation
       session[:username]
     end
 
-    def protected!
+    def place_logged?
+      session[:name]
+    end
+
+    def protected_for_users!
       erb :unauthorized unless user_logged?
+    end
+
+    def protected_for_places!
+      erb :unauthorized unless place_logged?
     end
 
     def check_place_name_and_address name, address

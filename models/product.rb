@@ -12,6 +12,10 @@ module Reservation
     
     property :weight, Integer
 
+    has n, :orders, 'Order',
+      parent_key: [:id],
+      child_key: [:id_product]
+
     belongs_to :restaurant, 'Restaurant',
       parent_key: [:id],
       child_key: [:id_restaurant]

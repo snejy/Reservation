@@ -17,6 +17,9 @@ DataMapper.auto_migrate!
 DataMapper.auto_upgrade!
 
 PATHS = {
+    '/' => Reservation::ReservationController,
     '/place' => Reservation::RestaurantController,
+    '/place/add' => Reservation::ManagementController,
     '/user' => Reservation::UserController
+
 }

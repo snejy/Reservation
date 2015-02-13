@@ -1,0 +1,15 @@
+<% if @place %>
+<ul>
+<form action='/order' method='post' class="form-vertical">
+  <% @place.tables.each do |table| %>
+  <% if table.available == true %>
+    <li><input class="span12" type="radio" value="<%= table.id %>" name="table_id" autofocus> Table number <%= table.number %> for <%= table.places%> people </li>
+  <% else %>
+    <p><%= table.number%> for <%= table.places %> people </p>
+    <% end %>
+  <% end %>
+<% else %>
+  <p> There are no places at the moment. </p>
+<% end %>
+<input class="btn btn-large btn-info" type='submit' value='Reserve'>
+</ul>

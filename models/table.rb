@@ -13,8 +13,13 @@ module Reservation
 
     property :available, Boolean, :default => true
 
+    has n, :orders, 'Order',
+      parent_key: [:id],
+      child_key: [:id_table]
+
     belongs_to :restaurant, 'Restaurant',
       parent_key: [:id],
       child_key: [:id_restaurant]
+
   end
 end

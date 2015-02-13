@@ -1,0 +1,14 @@
+<p>The table will be reserved for the next 20 minutes if you order in the next 5 minutes.</p>
+<% if @place.products %>
+<ul>
+<form action='/finish' method='post' class="form-vertical">
+<input class="span12" type="hidden" value="<%= @table_id %>" name="table_id" autofocus>
+<input class="span12" type="hidden" value="<%= @user_id %>" name="user_id" autofocus>
+  <% @place.products.each do |product| %>
+    <p><input class="span12" type="checkbox" value="<%= product.id %>" name="check[]" autofocus> <%= product.name %> for <%= product.price %> Leva - <%= product.weight %> grams </p> 
+  <% end %>
+<% else %>
+  <p> There are no products at the moment. </p>
+<% end %>
+<input class="btn btn-large btn-info" type='submit' value='Order'>
+</ul>
