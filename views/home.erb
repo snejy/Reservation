@@ -1,8 +1,15 @@
 <p class="lead">Welcome to Reservation!</p>
 <body>
-    <% if @users %>
-    <%   @users.each do |user| %>
-    <p><%= user.username%>
-       <% end %>
-    <% end %>
+   <header>
+        <div id="sidebar">
+            <div id="nav-anchor"></div>
+            <nav>
+                <ul id="menu">
+                    <li><a class="btn btn-large btn-info" href="/user/login">Log In as user</a></li>
+                    <li><a class="btn btn-large btn-info" href="/place/login">Log In as place</a></li>
+                    <li><a class="btn btn-large btn-info" href="/user/register">Register as user</a></li>
+                    <li><a class="btn btn-large btn-info"t href="/place/register">Register as place</a></li>
+                </ul>
+            </nav>
+        </div>
 </body>

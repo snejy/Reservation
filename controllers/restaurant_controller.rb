@@ -28,7 +28,7 @@ module Reservation
 
     get '/logout' do
       logout_place
-      redirect :home
+      erb :home
     end
 
     helpers AuthenticationHelper

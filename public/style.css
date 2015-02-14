@@ -41,3 +41,39 @@ body {
     height: auto;
     margin: 20px auto;
 }
+
+li {
+    display: inline-block;
+    width: 30em;
+}
+
+#menu li a:hover {
+    text-decoration: none;
+    color: #000000;
+    background-color: #E6E6E6;
+}
+
+#menu {
+    color:#000000;
+    opacity: 0.6;
+    position: fixed;
+    top: 0;
+    background-color: #CCC;
+}
+
+#sidebar {
+    width:300px;
+    float:left;
+}
+
+nav.stick {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    margin-top:12px;
+}
+
+nav li a {
+    color: #000000;
+    font-weight:700;
+}

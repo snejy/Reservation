@@ -33,8 +33,14 @@ module Reservation
       place.products
     end
 
+    def get_orders
+      restaurant_id = Restaurant.all(:name => session['name'])
+      Restaurant.all(:name => session['name'], :orders => Order.all)
+    end
+
     def logout_place
       session['name'] = nil
     end
+
   end
 end

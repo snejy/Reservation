@@ -1,0 +1,9 @@
+<% if not @orders.empty? %>
+<ul>
+  <% @orders.products.each do |product|%>
+    <li><p> Order: <%= product.name %></p></li>
+  <% end %>
+<% else %>
+  <p> There are no orders registered at the moment. </p>
+<% end %>
+</ul>

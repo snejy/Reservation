@@ -6,6 +6,48 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+      <% if session['username'] == nil and session['name'] == nil%>
+       <header>
+        <div id="sidebar">
+            <div id="nav-anchor"></div>
+            <nav>
+                <ul id="menu">
+                    <li><a class="btn btn-large btn-info" href="/user/login">Log In as user</a></li>
+                    <li><a class="btn btn-large btn-info" href="/place/login">Log In as place</a></li>
+                    <li><a class="btn btn-large btn-info" href="/user/register">Register as user</a></li>
+                    <li><a class="btn btn-large btn-info"t href="/place/register">Register as place</a></li>
+                </ul>
+            </nav>
+        </div>
+       </header>
+      <% end %>
+      <% if session['username'] != nil %>
+               <header>
+        <div id="sidebar">
+            <div id="nav-anchor"></div>
+            <nav>
+                <ul id="menu">
+                    <li><a class="btn btn-large btn-info" href="/user/place/search">Search for place</a></li>                     <li><a class="btn btn-large btn-info"t href="/user/place/logout">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+       </header>
+       <% end %>
+             <% if session['name'] != nil %>
+               <header>
+        <div id="sidebar">
+            <div id="nav-anchor"></div>
+            <nav>
+                <ul id="menu">
+                    <li><a class="btn btn-large btn-info" href="/place/add/table">Register table</a></li>
+                    <li><a class="btn btn-large btn-info" href="/place/add/product">Manage menu</a></li>
+                    <li><a class="btn btn-large btn-info" href="/place/add/orders">Check for orders</a></li>
+                    <li><a class="btn btn-large btn-info"t href="/place/add/logout">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+       </header>
+       <% end %>
         <h1> Make a reservation now. Here.</h1>
         <%= yield %>
     </body>

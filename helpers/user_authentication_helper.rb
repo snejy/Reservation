@@ -48,10 +48,15 @@ module Reservation
     def check_place_name_and_address name, address
       "A place with the same name and address already exists." if Restaurant.count(:name => name, :address => address) != 0
     end
-    
+
+    def check_address_lenght address
+      "The address must be more than 10 characters." if address.length < 10
+    end
     def create_place name, address, password
       if check_place_name_and_address name, address
         check_place_name_and_address name, address
+      elsif check_address_lenght address
+        check_address_lenght address
       else
         Restaurant.create(:name => name, :address => address, :password => password)
         "The place was successfully created. You can log in now as #{name} and manage tables and menus."

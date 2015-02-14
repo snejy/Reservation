@@ -2,7 +2,7 @@ module Reservation
   class UserController < Base
 
     get '/register' do
-      erb :register_user  
+      erb :register_user
     end
 
     post '/register' do

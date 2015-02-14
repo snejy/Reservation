@@ -18,7 +18,8 @@ DataMapper.auto_upgrade!
 DataMapper.finalize
 
 PATHS = {
-    '/' => Reservation::ReservationController,
+    '/' => Reservation::WebsiteController,
+    '/user/place' => Reservation::ReservationController,
     '/place' => Reservation::RestaurantController,
     '/place/add' => Reservation::ManagementController,
     '/user' => Reservation::UserController

@@ -1,7 +1,7 @@
 <p>The table will be reserved for the next 20 minutes if you order in the next 5 minutes.</p>
 <% if @place.products %>
 <ul>
-<form action='/finish' method='post' class="form-vertical">
+<form action='/user/place/finish' method='post' class="form-vertical">
 <input class="span12" type="hidden" value="<%= @table_id %>" name="table_id" autofocus>
 <input class="span12" type="hidden" value="<%= @user_id %>" name="user_id" autofocus>
   <% @place.products.each do |product| %>

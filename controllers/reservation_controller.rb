@@ -18,7 +18,11 @@ module Reservation
         erb :find_place
       else
         @places = search_place params['place']
-        erb :find_place
+        if @place != true
+          erb "<p> Place with this name does not exists </p>"
+        else
+          erb :find_place
+        end
       end
     end
 
@@ -48,6 +52,11 @@ module Reservation
         @orders << order(product, params['table_id'], params['user_id'])
       end
       erb "<p> Your order is being processed now.</p>"
+    end
+
+    get '/logout' do
+      logout
+      erb :home
     end
 
     helpers BackgroundJobsHelper
