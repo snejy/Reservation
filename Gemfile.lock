@@ -98,6 +98,7 @@ PLATFORMS
 DEPENDENCIES
   data_mapper
   dm-sqlite-adapter
+  rack
   rack-test
   rspec
   sinatra (~> 1.4)
